@@ -1,0 +1,79 @@
+﻿@model List<WebBanMyPham.DataBase.EF.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+   
+</head>
+<body id="page-top">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].MaSP)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].TenSP)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].MaLoaiSP)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].DonGia)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].DonViDo)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].SoLuong)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].TrangThai)</th>
+                        <th>Chức Năng</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].MaSP)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].TenSP)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].MaLoaiSP)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].DonGia)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].DonViDo)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].SoLuong)</th>
+                        <th>@Html.DisplayNameFor(modelItem => modelItem[0].TrangThai)</th>
+                        <th>Chức Năng</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @*<th><img src= "@item.AnhDaiDien" width="16px" height="16px"></th>*@
+                            <th>@Html.DisplayFor(modelItem => item.MaSP)</th>
+                            <th>@Html.DisplayFor(modelItem => item.TenSP)</th>
+                            <th>@Html.DisplayFor(modelItem => item.LoaiSP.TenLoaiSP)</th>
+                            <th>@Html.DisplayFor(modelItem => item.DonGia)</th>
+                            <th>@Html.DisplayFor(modelItem => item.DonViDo)</th>
+                            <th>@Html.DisplayFor(modelItem => item.SoLuong)</th>
+                            <th>@Html.DisplayFor(modelItem => item.TrangThai)</th>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.MaSP }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.MaSP }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.MaSP })
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+</body>
+</html>
+@section header
+{
+    Danh Sách Sản Phẩm
+}
